@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 100vh;
+        background-image: url("./Happy_Birthday_4K_Wallpaper.jpg");
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .none {
+        display: none;
+      }
+      .btn {
+        /* position: absolute; */
+        left: 50%;
+        top: 30%;
+        margin: 0;
+        padding: 0;
+        z-index: 99;
+        background: none;
+      }
+
+      img {
+        position: relative;
+        display: flex;
+        /* width: 100vw; */
+        max-height: 100vh;
+      }
+      .hidden_block {
+        display: none;
+      }
+
+      @media (max-width: 500px) {
+        body {
+          width: 100vw;
+          background-image: url("./wallpaper-mobile.jpg");
+          background-size: cover;
+        }
+        img {
+          max-height: none;
+          max-width: 100vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      onclick="startSlideShow(); var audio = new Audio(
+        './Low_Roar_-_Dont_Be_So_Serious_(musmore.com).mp3'
+      );
+      audio.play();
+      "
+      class="btn"
+      name="buttonStart"
+    >
+      <img src="./play-white.svg" alt="" />
+    </button>
+    <!-- </div> -->
+    <img name="slideshow" />
+
+    <script>
+      var i = 0;
+      var images = [];
+      var time = 5000;
+      images[0] =
+        "/Q1f31BWvUbcEIJcm4WE3oo2Uvmizve2Dx4XbQcXURtFIwS32CPJtfeVp2x_IEEqw8QJooIq1.jpg";
+      images[1] =
+        "./xq79O9VaUcNBKzlsxzFVLWNAtQ8XsSfOjYkWVzV2YkzpJj575nuiqNrO2l5Oq-u0lu_zF4bk.jpg";
+
+      images[2] =
+        "./UKRfngMl1MlKgo6VjBZO4w4_t4O_hmNcoKxena9DuZPCjXC3SLzdwI1V0dqe5gIns_lXRf29.jpg";
+
+      images[3] =
+        "./fl9nmXkhvqwCnlzduoZQWYlesJeN_wEyPVaDbZi2EAzLbu5OMGQXog9CtoKe7Tqdm8Rm6w.jpg";
+
+      images[4] =
+        "./hEtScqiUeIabE4XrwP428Dcp9dIIusOPIoiXtzGFp2h-dE7c66_Ownsjt_2lgy7lDHyrIbdi.jpg";
+
+      images[5] =
+        "./o-bvuF1vc1LId4VUNcAjyUkOsLJZt8XORWaQp1YFGmct7X0hUjSwgX9Q4W4sJOIdvCVHSzT0.jpg";
+
+      images[6] =
+        "./-kMvJtpC5tPNj13jAILDqVMKr2V3E5qOCQVfSXldG4ZvtGj5IMMgbMJC6ErGZUwNFYQuRchS.jpg";
+
+      images[7] =
+        "./WDSfmldhv2S0TxasIMvgwu4F-4xPGQu2kWsLMcmo696dj36du9OQMdHKF_eFXPbhD8-0wSYr.jpg";
+
+      images[8] =
+        "./hWSKh5d22_lXVnbTFEAkw6XSG_Zw6wRFJVrKxKFVV9WyMz9oJKBQcgk7AM4FeLxWKtI3yQ.jpg";
+
+      images[9] =
+        "./y3omMxwiVY0DcCNZZ6b2fc_fy4d6ioSejLoyMCRwYltNT09jefEDrp6hgKAgTN7uhH4h_w4W.jpg";
+
+      images[10] =
+        "./Eo1hPS7HlgXiaZFp80qA-p2TZcbFxDc4sSLN-NGE-trOIvU511etrD0aJWGEMRqor2nIzA.jpg";
+
+      images[11] =
+        "./s0KOua_oKtGaJ5RgRd4CjDGWOGER2uqfDTSr_Tx4YDpCPiczmRjzqJrLjRIaDyQfsBoRP5sX.jpg";
+
+      images[12] =
+        "./Hn-Qd23dskCV27llTBEPlDKG1_86J-4kXR-nvLNVsV2dLii6tiEx3ME_qLRd1OGbDUWOwruP.jpg";
+
+      images[13] =
+        "./XN8SmN5oLVO66DeEGj4Mr_7S-RZoQRr1jLQ-VVcY1A6B738U7KP9rSsJ0bbLPVil1HuoJ50D.jpg";
+
+      images[14] =
+        "./nB8X1704tp934kTmsn3QTQRQhLF9-OsKSt-ZvVCRU0KkVFoh6NgbsrrfWZnm680Zewhw5cL-.jpg";
+
+      images[15] =
+        "./hhAQHps12fQIJ3lgHKM6VlElzgGKyC9fhzfXY0UGSM75hVwObbWnPq2PfhS9lguec3dDjxCR.jpg";
+
+      images[16] =
+        "./-NEYHuAXlcHiVJiB4M3W0rx6VxXyVTwWAlsyHkjM4qtzuQuf3HclRein4zjC0A7xU82Wlw.jpg";
+
+      images[17] =
+        "./nvIsE5_WVqAriB1ZTUvhQoKzv-DWCnxB5YNAQ_rGMlq1DjYEYdZlRRA3pcpp72yzf2_JcVfa.jpg";
+
+      images[18] =
+        "./Nz-GV1Glbh6g2qd-gxGpU-nbL8UUsbkuz4v0UaTZ0A9rVj1QCQzMdJ8nu9rghX7Zm8qOnfjc.jpg";
+
+      images[19] =
+        "./YI0q3W9rycmZMCyzg5uDohTq5TViUxPc5aA3BzDOLRAm_lca86dYYGFuDZil3qZJysnfbF5u.jpg";
+
+      images[20] =
+        "./UjMdEUqrEk-j7YkSvtFyWpnyVrwsVYJ0bVkRk9FoL_PiiGHNrjF_5A_dVT78RPp4TwbyOxTp.jpg";
+
+      images[21] =
+        "./drmCF7RMbKMvQsIVUYHzuwkKUzuiH1vIO5FGbV67oR2IxZjwrfnIFK0CW628vwDY1eHQHwrV.jpg";
+
+      images[22] =
+        "./Klg7UdeLZ19Ck4itduNRWHpbt1zxK12FagYmChOBTXAw2Q_WWV5-RSXTMJQzFywpf_TPbYul.jpg";
+
+      images[23] =
+        "./tUKVFQre_xxqNKPGuzLOhBqDY3lH9RXeMVrIqCNBguf2YgIgjfUVCVqfzCeMvsNaPVXnwBnd.jpg";
+
+      images[24] =
+        "./W-EVq4m2U66D_xuxORwf-rkPPex_XKP7zF3eQA0VeuVtG-mRTSWlsBCnqn89bs8u9ow0Sw.jpg";
+
+      images[25] =
+        "./ukyTcQEuF2oqw5Wd5PdOQakz0mkBjwYkY8YPtQ4Ku9Eec2P5c-ZVIHj55xJ6aNZREpBzyg.jpg";
+
+      images[26] =
+        "./cfEnv1TRRjrfMB6stIuvrB66vqWiiFJqFnpw_RzfFXw-qx81NcJ0beELNsbePChy2DgKsA.jpg";
+
+      images[27] =
+        "./aESF8BwzF4EHT60JGXBC7RatjrRH5CRGN6ovnDZ7LIaPMmRvO3BW-BQlKbvwaTCyiON2Cw.jpg";
+
+      images[28] =
+        "./TKBXrnJdn6Nj1CdfJR7YQJpgUPzGgQsRUKB_lvwiTjAq4TlcLSrB9FfJvsV85yAGBkFTxw.jpg";
+
+      images[29] =
+        "./vCX7A2SJDi3TCsIplkFsrddAK8-b_ybt2xgFcaZMhbbkLiE8E-CFmoTeggj5npBVZoLMZA.jpg";
+
+      images[30] =
+        "./zMCi0K3meOOtn43hP_5FuIGo3vF9y5qEjAhf25Oypd1IOpqjateZyeF9ZRO9Baz6c3Tw0mno.jpg";
+
+      images[31] =
+        "./GlXGqL0iBn73QlVnZGv86dg6sd_LP6Y39roH9qarSYVX48_GupcRvDFvqwZClrF7Cdn6LwzQ.jpg";
+
+      images[32] =
+        "./FqPF9TkmH5tF3wGuss6oYVGL5a7rBX7E6Zw4AXwetCe41b-DqSRLYWXcCC5mk-cpnlTCwa-Q.jpg";
+
+      images[33] =
+        "./HonWOwe1yNdB9ZzuszeXkX42OD4nvnD0jwt9IgywjyGiSP7XvcoFKden1QxTj1caX4A80g.jpg";
+
+      images[34] =
+        "./mgz_QGZACbMcbt7VKyU0OKGe2P5621jZfnxZj2B-bC6rsHrW_Wkz8iaYmj10Vv2JxCzZpw.jpg";
+
+      images[35] =
+        "./9WAiKGTTBrmqPf_H20Z13fx2SNiuxTQ7GmexcYYn0A7apzOhMOJ9-Bk_zhypVapf9YYSAsz7.jpg";
+
+      images[36] =
+        "./OKiMResvB4Pw4eI9HSwpcndPKuRrkxhgLmVfJsRGzOP7TgARZbS2T9Ovyi5mmqlagOk6uQ.jpg";
+
+      images[37] =
+        "./RdmYfp_Jx3x_hdOKxLBMcfzD1SahvGJLnXXkABSO-SrGdygOeJB6S6ZzUCNXO3anl-Dz4_xHkP7SA4Tu8iPCbhT1.jpg";
+
+      images[38] =
+        "./dCAFUHHUJLZOdbyPZjbjeaDAzp2aPvAjA_lwey3MmhW0SXVrhqqtPCMBqIrviipxu5pEjy7w1la4k6V2hc4SRImq.jpg";
+
+      images[39] =
+        "./NxzZtCNOus4Byz7-h0B2b234rLCGHPh-tNTnYoX0dCB2eBin0FK7zfkOwDTu4oUjTJkQUVLJUX5Debg6op54HsJe.jpg";
+
+      images[40] =
+        "./vEzrL6OuaRRdG7HtyACjJxqLphofkyGP3FtpMgefCYxET5k13puUi0-EdtnsFIsJrp81ZoY-CfbO7cVViTTbaWBX.jpg";
+
+      images[41] =
+        "./k5ffVxlhqp1ailPP9-x1MwU0o3EPLERRobhoMJSeED_nmbLXPIbxNNYO_TJUJAG0Vftv_c8TFZbdqFyejJZuopjL.jpg";
+
+      images[42] =
+        "./VnGsZDDMufqZFme7ztjVNOUO8_upwpr-TslS9W2hpDvl2mnbR_yizCbbE0uVugmoFrMoA1IS89qOx0lIRZu60MXF.jpg";
+
+      images[43] =
+        "./sjRA6CVYRd9XfqYISz6DKyblMqBKbeSy9B5iq3I76woKTtPTTRqLrlUo5SCploWiQ7ItMH0Odwrfy72jlHsOE1wO.jpg";
+
+      images[44] =
+        "./2bAxl8NMnfi6v419bpgPOGQ_GhNpYjcu0_W5H69G1HzBGf_YGYxZex3IfdcQ06C3pFS8f5IwHDX2AsLtcEQRWMEb.jpg";
+
+      images[45] = "./w_5cf9fe52.jpg";
+
+      images[46] = ".//wishes.png";
+      images[47] = ".//continue.png";
+      images[48] = ".//1.jpg";
+      images[49] = ".//2.jpg";
+      images[50] = ".//3.jpg";
+      images[51] = ".//4.jpg";
+      images[52] = ".//5.jpg";
+      images[53] = ".//6.jpg";
+      images[54] = ".//7.jpg";
+      images[55] = ".//8.jpg";
+      images[56] = ".//9.jpg";
+      images[64] = ".//10.jpg";
+      images[57] = ".//11.jpg";
+      images[58] = ".//12.jpg";
+      images[59] = ".//13.jpg";
+      images[60] = ".//14.jpg";
+      images[61] = ".//15.jpg";
+      images[62] = ".//16.jpg";
+      images[63] = ".//17.jpg";
+      images[65] = ".//PS.png";
+      images[66] = ".//18.jpg";
+
+      function slideShow() {
+        document.slideshow.src = images[i];
+        // let button = document.getElementsByName("buttonStart");
+        // document.addEventListener("click", "buttonStart") = startSlideShow();
+      }
+      var buttonStart = getComputedStyle(
+        document.getElementsByName("buttonStart")
+      );
+
+      function startSlideShow() {
+        document.slideshow.src = images[i];
+        const hiddenbutton = document.querySelector(".btn");
+        hiddenbutton.classList.add("none");
+        // PS
+
+        if (i == 64) {
+          setTimeout("startSlideShow()", 15000);
+          i++;
+        } else {
+          if (i == 65) {
+            setTimeout("startSlideShow()", 10000);
+            i++;
+          } else {
+            // стич
+            if (i == 66) {
+              setTimeout("startSlideShow()", 1000);
+              i++;
+            } else {
+              // Продолжение
+              if (i == 47) {
+                setTimeout("startSlideShow()", 7000);
+                i++;
+              }
+              // Поздравление
+              else {
+                if (i == 46) {
+                  setTimeout("startSlideShow()", 25000);
+                  i++;
+                } else {
+                  if (i < images.length - 1) {
+                    setTimeout("startSlideShow()", time);
+                    i++;
+                  } else {
+                    document.location.reload();
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      window.onload = slideShow;
+    </script>
+  </body>
+</html>
