@@ -230,8 +230,7 @@
       images[61] = ".//15.jpg";
       images[62] = ".//16.jpg";
       images[63] = ".//17.jpg";
-      images[65] = ".//PS.png";
-      images[66] = ".//18.jpg";
+ 
 
       function slideShow() {
         document.slideshow.src = images[i];
@@ -249,18 +248,10 @@
         // PS
 
         if (i == 64) {
-          setTimeout("startSlideShow()", 15000);
+          setTimeout("startSlideShow()", 30000);
           i++;
         } else {
-          if (i == 65) {
-            setTimeout("startSlideShow()", 10000);
-            i++;
-          } else {
-            // стич
-            if (i == 66) {
-              setTimeout("startSlideShow()", 1000);
-              i++;
-            } else {
+           
               // Продолжение
               if (i == 47) {
                 setTimeout("startSlideShow()", 7000);
@@ -278,10 +269,10 @@
                   } else {
                     document.location.reload();
                   }
-                }
+                
               }
             }
-          }
+          
         }
       }
       window.onload = slideShow;
