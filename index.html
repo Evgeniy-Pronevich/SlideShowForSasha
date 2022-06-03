@@ -230,7 +230,7 @@
       images[61] = ".//15.jpg";
       images[62] = ".//16.jpg";
       images[63] = ".//17.jpg";
- 
+  images[64] = ".//18.jpg";
 
       function slideShow() {
         document.slideshow.src = images[i];
@@ -247,6 +247,11 @@
         hiddenbutton.classList.add("none");
         // PS
 
+        
+         if (i == 65) {
+          setTimeout("startSlideShow()", 2000);
+          i++;
+        } else {
         if (i == 64) {
           setTimeout("startSlideShow()", 30000);
           i++;
@@ -271,6 +276,7 @@
                   }
                 
               }
+            }
             }
           
         }
